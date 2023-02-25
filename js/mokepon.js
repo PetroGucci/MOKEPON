@@ -133,9 +133,13 @@ function extraerAtaques(mascotaJugador){
     for (let i = 0; i < mokepones.length; i++) {
         if (mascotaJugador===mokepones[i].nombre) {
             ataques=mokepones[i].ataques
-        }
-        
+        }   
     }
+    mostrarAtaques(ataques)
+}
+
+function mostrarAtaques(ataques){
+    
 }
 
 function seleccionarMascotaEnemigo() {
