@@ -24,6 +24,7 @@ const sectionMensajes=document.getElementById('resultado')
 const ataquesDelJugador=document.getElementById('ataques-jugador')
 const ataquesDelEnemigo=document.getElementById('ataques-enemigo')
 
+let mokepones=[]
 let ataqueJugador
 let ataqueEnemigo
 let vidasJugador=3
@@ -41,6 +42,10 @@ let hipodoge=new Mokepon('Hipodoge','./assets/mokepons_mokepon_hipodoge_attack.p
 let capipepo=new Mokepon('Capipepo','./assets/mokepons_mokepon_capipepo_attack.png', 5)
 let ratigueya=new Mokepon('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png', 5)
 
+mokepones.push(hipodoge,capipepo,ratigueya)
+
+console.log(mokepones)
+
 function iniciarJuego(){
     
     sectionSeleccionarAtaque.style.display='none'
@@ -49,7 +54,8 @@ function iniciarJuego(){
     botonFuego.addEventListener('click',ataqueFuego)
     botonAgua.addEventListener('click',ataqueAgua)
     botonTierra.addEventListener('click',ataqueTierra)
-    botonReiniciar.addEventListener('click',reiniciarJuego)}
+    botonReiniciar.addEventListener('click',reiniciarJuego)
+}
 
 function seleccionarMascotaJugador(){
     
@@ -63,7 +69,8 @@ function seleccionarMascotaJugador(){
         else if(inputRatigueya.checked){
         spanMascotaJugador.innerHTML='Ratigueya'}
             else{alert('Selecciona una mascota')}
-seleccionarMascotaEnemigo()}
+            seleccionarMascotaEnemigo()
+}
 
 function seleccionarMascotaEnemigo(){
     let mascotaAleatoria=aleatorio(1,3)
@@ -73,21 +80,26 @@ function seleccionarMascotaEnemigo(){
     else if(mascotaAleatoria==2){
         spanMascotaEnemigo.innerHTML='Capipepo'}
         else{
-            spanMascotaEnemigo.innerHTML='Ratigueya'}}
+            spanMascotaEnemigo.innerHTML='Ratigueya'}
+}
 
 function ataqueFuego(){ataqueJugador='FUEGO'
-    ataqueAleatorioEnemigo()}
+    ataqueAleatorioEnemigo()
+}
 function ataqueAgua(){ataqueJugador='AGUA'
-    ataqueAleatorioEnemigo()}
+    ataqueAleatorioEnemigo()
+}
 function ataqueTierra(){ataqueJugador='TIERRA'
-    ataqueAleatorioEnemigo()}
+    ataqueAleatorioEnemigo()
+}
 function ataqueAleatorioEnemigo(){
     let ataqueAleatorio=aleatorio(1,3)
     if(ataqueAleatorio==1){ataqueEnemigo='FUEGO'}
     else if(ataqueAleatorio==2){
         ataqueEnemigo='AGUA'}
         else{ataqueEnemigo='TIERRA'}
-combate()}
+    combate()
+}
 
 function combate(){
     
@@ -96,16 +108,17 @@ function combate(){
     else if(ataqueJugador=='FUEGO'&&ataqueEnemigo=='TIERRA'){
         crearMensaje("GANASTE")
         vidasEnemigo--
-spanVidasEnemigo.innerHTML=vidasEnemigo}
+    spanVidasEnemigo.innerHTML=vidasEnemigo}
     else if(ataqueJugador=='AGUA'&&ataqueEnemigo=='FUEGO'){crearMensaje("GANASTE")
-vidasEnemigo--
-spanVidasEnemigo.innerHTML=vidasEnemigo}
+    vidasEnemigo--
+    spanVidasEnemigo.innerHTML=vidasEnemigo}
     else if(ataqueJugador=='TIERRA'&&ataqueEnemigo=='AGUA'){crearMensaje("GANASTE")
-vidasEnemigo--
-spanVidasEnemigo.innerHTML=vidasEnemigo}else{crearMensaje("PERDISTE")
-vidasJugador--
-spanVidasJugador.innerHTML=vidasJugador}
-revisarVidas()}
+    vidasEnemigo--
+    spanVidasEnemigo.innerHTML=vidasEnemigo}else{crearMensaje("PERDISTE")
+    vidasJugador--
+    spanVidasJugador.innerHTML=vidasJugador}
+    revisarVidas()
+}
 
 function revisarVidas(){
     if(vidasEnemigo==0){
@@ -139,4 +152,5 @@ function crearMensajeFinal(resultadoFinal){
     sectionReiniciar.style.display='block'}
     function reiniciarJuego(){location.reload()}
     function aleatorio(min,max){
-        return Math.floor(Math.random()*(max-min+1)+min)}
+        return Math.floor(Math.random()*(max-min+1)+min)
+}
