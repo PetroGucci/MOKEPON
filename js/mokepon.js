@@ -13,6 +13,7 @@ const ataquesDelJugador=document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo=document.getElementById('ataques-del-enemigo')
 const contenedorTarjetas=document.getElementById('contenedorTarjetas')
 const contenedorAtaques=document.getElementById('contenedorAtaques')
+
 let mokepones=[]
 let ataqueJugador=[]
 let ataqueEnemigo=[]
@@ -121,13 +122,16 @@ function secuenciaAtaque(){
         {ataqueJugador.push('FUEGO')
         console.log(ataqueJugador)
         boton.style.background='#112f58'
+        boton.disabled=true
     }else if(e.target.textContent==='💧')
         {ataqueJugador.push('AGUA')
         console.log(ataqueJugador)
         boton.style.background='#112f58'
+        boton.disabled=true
     }else{ataqueJugador.push('TIERRA')
         console.log(ataqueJugador)
         boton.style.background='#112f58'}
+        boton.disabled=true
 ataqueAleatorioEnemigo()})})
 }
 
@@ -149,20 +153,21 @@ if(ataqueAleatorio==0||ataqueAleatorio==1){
 console.log(ataqueEnemigo)
 iniciarPelea()
 }
+
 function iniciarPelea(){
     if(ataqueJugador.length===5){combate()}
 }
+
 function indexAmbosOponente(jugador,enemigo){
     indexAtaqueJugador=ataqueJugador[jugador]
     indexAtaqueEnemigo=ataqueEnemigo[enemigo]
 }
+
 function combate(){
     for(let index=0;index<ataqueJugador.length;index++){
         if(ataqueJugador[index]===ataqueEnemigo[index]){
             indexAmbosOponente(index,index)
 crearMensaje("EMPATE")
-victoriasJugador++
-spanVidasJugador.innerHTML=victoriasJugador
 } else if(ataqueJugador[index]==='FUEGO'&&ataqueEnemigo[index]==='TIERRA'){
     indexAmbosOponente(index,index)
 crearMensaje("GANASTE")
@@ -203,11 +208,9 @@ nuevoAtaqueDelEnemigo.innerHTML=indexAtaqueEnemigo
 ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
 ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
-function crearMensajeFinal(resultadoFinal){sectionMensajes.innerHTML=resultadoFinal
-botonFuego.disabled=true
-botonAgua.disabled=true
-botonTierra.disabled=true
-sectionReiniciar.style.display='block'
+function crearMensajeFinal(resultadoFinal){
+    sectionMensajes.innerHTML=resultadoFinal
+    sectionReiniciar.style.display='block'
 }
 function reiniciarJuego(){location.reload()
 }
