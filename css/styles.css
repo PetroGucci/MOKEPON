@@ -2,9 +2,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-image:url("/JavaScript/js_basico/MOKEPON/assets/pokemon-unite.png");
-  background-position: center;
-  background-size: auto;
+  background-color: #041562;
 }
 
 #seleccionar-mascota {
@@ -62,8 +60,8 @@ input {
   display: none;
 }
 
-input:checked+label{
-  background-color: #5d8bf4;
+input:checked + label {
+  background-color: #5D8BF4;
 }
 
 #seleccionar-ataque {
@@ -78,7 +76,7 @@ input:checked+label{
   box-sizing: border-box;
   border-radius: 20px;
   border-color: transparent;
-  width: 45px;
+  width: 40px;
   color: white;
   font-family: 'Poppins', sans-serif;
 }
@@ -117,8 +115,33 @@ input:checked+label{
   align-items: center;
 }
 
-@media (max-width: 360px) {
+#ver-mapa {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#ver-mapa button {
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin: 10px 0;
+}
+
+@media (max-width: 560px) {
   .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 300px) {
+  #ver-mapa div {
+    display: flex;
+    align-items: center;
     flex-direction: column;
   }
 }
