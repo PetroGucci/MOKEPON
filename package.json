@@ -1,0 +1,23 @@
+{
+  "name": "mokepon",
+  "version": "1.0.0",
+  "description": "Juego web inspirado en la saga de pokemon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PetroGucci/MOKEPON.git"
+  },
+  "keywords": [
+    "mokepon",
+    "proyecto"
+  ],
+  "author": "Mauricio Vasquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PetroGucci/MOKEPON/issues"
+  },
+  "homepage": "https://github.com/PetroGucci/MOKEPON#readme"
+}
